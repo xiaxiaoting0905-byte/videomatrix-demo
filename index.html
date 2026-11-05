@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="VideoMatrix 短视频矩阵混剪工具功能体验与桌面版下载。" />
+    <meta name="theme-color" content="#11100e" />
+    <title>VideoMatrix · 功能体验版</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/w2968066/VideoMatrix--/main/docs/images/app-icon.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="VideoMatrix 首页">
+        <img src="https://raw.githubusercontent.com/w2968066/VideoMatrix--/main/docs/images/app-icon.png" alt="" />
+        <span>VideoMatrix</span>
+      </a>
+      <nav aria-label="页面导航">
+        <a href="#demo">功能体验</a>
+        <a href="#fit">适用性</a>
+        <a href="#download">下载</a>
+      </nav>
+      <a class="header-cta" href="#download">试用桌面版</a>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span></span> v2.8.0 功能快速体验</div>
+          <h1>把一批素材，<br /><em>组成一批成片。</em></h1>
+          <p class="hero-lede">
+            专为抖音千川、电商信息流和 Hook 测试设计的批量混剪工具。
+            随机组片、多轨配乐、字幕水印、去重变换，一次配置后批量导出。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#demo">先在线体验流程 <span>↓</span></a>
+            <a class="button ghost" href="#download">下载真实版</a>
+          </div>
+          <div class="trust-row" aria-label="支持信息">
+            <span>✓ Windows 10/11 x64</span>
+            <span>✓ macOS Apple Silicon</span>
+            <span>✓ 自带 FFmpeg</span>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="poster-card">
+            <img src="https://raw.githubusercontent.com/w2968066/VideoMatrix--/main/docs/images/wechat-cover-21x9.png" alt="VideoMatrix 短视频矩阵混剪工具展示" />
+            <div class="poster-overlay">
+              <span class="live-dot"></span>
+              <strong>本机批量渲染</strong>
+              <small>素材不离开你的电脑</small>
+            </div>
+          </div>
+          <div class="float-chip chip-a"><b>10 组</b><span>Body 分组</span></div>
+          <div class="float-chip chip-b"><b>1–4 路</b><span>并发压测</span></div>
+        </div>
+      </section>
+
+      <section class="quick-facts" aria-label="核心能力">
+        <div><b>01</b><span>随机抽取、乱序、分组拼接</span></div>
+        <div><b>02</b><span>BGM、配音、字幕、水印</span></div>
+        <div><b>03</b><span>裁切、镜像、色彩、随机首帧</span></div>
+        <div><b>04</b><span>硬件编码探测与 CPU 回退</span></div>
+      </section>
+
+      <section class="demo-section" id="demo">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">INTERACTIVE WALKTHROUGH</span>
+            <h2>像真实软件一样，走一遍核心流程</h2>
+          </div>
+          <p>这里模拟配置与任务进度；真实视频解码和导出需在下载后的桌面版中执行。</p>
+        </div>
+
+        <div class="demo-shell">
+          <div class="demo-topbar">
+            <div class="window-dots"><i></i><i></i><i></i></div>
+            <span>VideoMatrix · 流程模拟器</span>
+            <span class="simulation-badge">模拟体验</span>
+          </div>
+          <div class="demo-grid">
+            <aside class="steps" aria-label="演示步骤">
+              <button class="step active" data-step="1"><span>1</span><b>选择素材</b><small>Hook + Body</small></button>
+              <button class="step" data-step="2"><span>2</span><b>设置节奏</b><small>分段与配乐</small></button>
+              <button class="step" data-step="3"><span>3</span><b>输出与去重</b><small>分辨率与变换</small></button>
+              <button class="step" data-step="4"><span>4</span><b>生成任务</b><small>查看估算与进度</small></button>
+            </aside>
+
+            <div class="demo-panel">
+              <div class="step-panel active" data-panel="1">
+                <div class="panel-title"><div><small>STEP 01</small><h3>选择 Hook 与 Body 素材</h3></div><span class="status-pill">本地处理</span></div>
+                <div class="drop-grid">
+                  <label class="drop-card">
+                    <input class="file-input" type="file" accept="video/*" multiple data-target="hook-count" />
+                    <span class="drop-icon">H</span><b>Hook 素材</b>
+                    <small>点击选几个本地视频体验</small>
+                    <em id="hook-count">演示数据：8 条</em>
+                  </label>
+                  <label class="drop-card">
+                    <input class="file-input" type="file" accept="video/*" multiple data-target="body-count" />
+                    <span class="drop-icon">B</span><b>Body 素材</b>
+                    <small>可按商品或镜头类型分组</small>
+                    <em id="body-count">演示数据：24 条</em>
+                  </label>
+                </div>
+                <div class="privacy-note"><span>◉</span><p><b>素材不会上传。</b>此页只读取你选中的文件数量，正式软件也在本机处理。</p></div>
+              </div>
+
+              <div class="step-panel" data-panel="2">
+                <div class="panel-title"><div><small>STEP 02</small><h3>设定一条成片的结构</h3></div><span class="status-pill">实时估算</span></div>
+                <div class="control-list">
+                  <label><span>Hook 时长 <b id="hook-value">3.0s</b></span><input id="hook-range" type="range" min="1" max="8" value="3" step="0.5" /></label>
+                  <label><span>Body 段数 <b id="segments-value">5 段</b></span><input id="segments-range" type="range" min="1" max="12" value="5" /></label>
+                  <label><span>单段时长 <b id="clip-value">2.0s</b></span><input id="clip-range" type="range" min="0.5" max="6" value="2" step="0.5" /></label>
+                </div>
+                <div class="choice-row">
+                  <button class="choice active" data-mode="count">按片段数</button>
+                  <button class="choice" data-mode="music">按 BGM 时长</button>
+                  <button class="choice" data-mode="groups">Body 分组</button>
+                </div>
+                <div class="estimate-card"><small>预计单条时长</small><strong id="duration-estimate">13.0 秒</strong><span id="mode-note">Hook + 5 个 Body 片段</span></div>
+              </div>
+
+              <div class="step-panel" data-panel="3">
+                <div class="panel-title"><div><small>STEP 03</small><h3>确定输出规格与变换</h3></div><span class="status-pill">可保存预设</span></div>
+                <div class="spec-grid">
+                  <label><span>画布</span><select id="resolution"><option value="1080×1920">1080 × 1920 · 竖屏</option><option value="1920×1080">1920 × 1080 · 横屏</option><option value="720×1280">720 × 1280 · 竖屏</option></select></label>
+                  <label><span>成片数量</span><input id="output-count" type="number" min="1" max="100" value="10" /></label>
+                  <label><span>帧率</span><select><option>30 fps</option><option>25 fps</option><option>60 fps</option></select></label>
+                  <label><span>码率</span><select><option>8000 kbps</option><option>12000 kbps</option><option>随机 8000–14000</option></select></label>
+                </div>
+                <div class="toggle-grid">
+                  <label class="toggle"><input type="checkbox" checked /><i></i><span><b>GPU 编码</b><small>不可用时回退 CPU</small></span></label>
+                  <label class="toggle"><input type="checkbox" checked /><i></i><span><b>随机首帧</b><small>替换首帧，不改时长</small></span></label>
+                  <label class="toggle"><input type="checkbox" /><i></i><span><b>轻微裁切</b><small>与混剪共用一次编码</small></span></label>
+                  <label class="toggle"><input type="checkbox" /><i></i><span><b>随机镜像</b><small>可能翻转原片文字</small></span></label>
+                </div>
+              </div>
+
+              <div class="step-panel" data-panel="4">
+                <div class="panel-title"><div><small>STEP 04</small><h3>生成一个批量任务</h3></div><span class="status-pill accent">准备就绪</span></div>
+                <div class="summary-grid">
+                  <div><small>预计产出</small><strong id="summary-count">10 条</strong></div>
+                  <div><small>单条时长</small><strong id="summary-duration">13.0 秒</strong></div>
+                  <div><small>输出规格</small><strong id="summary-resolution">1080×1920</strong></div>
+                </div>
+                <button class="run-button" id="run-demo"><span>▶</span> 模拟开始混剪</button>
+                <div class="progress-wrap" id="progress-wrap" aria-live="polite">
+                  <div class="progress-meta"><span id="progress-label">等待开始</span><b id="progress-value">0%</b></div>
+                  <div class="progress-track"><i id="progress-bar"></i></div>
+                  <pre id="task-log">[系统] 当前为流程模拟，不会导出真实视频。</pre>
+                </div>
+              </div>
+
+              <div class="demo-footer">
+                <button id="prev-step" disabled>← 上一步</button>
+                <span id="step-label">1 / 4</span>
+                <button id="next-step">下一步 →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="fit-section" id="fit">
+        <div class="section-heading compact">
+          <div><span class="section-kicker">FIT CHECK</span><h2>它适合什么，不适合什么</h2></div>
+        </div>
+        <div class="fit-grid">
+          <article class="fit-card yes">
+            <span class="fit-mark">✓</span><h3>适合你，如果你需要</h3>
+            <ul>
+              <li>为多款商品批量生成信息流素材</li>
+              <li>快速测试不同 Hook、Body 和 BGM 组合</li>
+              <li>统一字幕、水印、配音和输出规格</li>
+              <li>在本机批量处理，不上传业务素材</li>
+            </ul>
+          </article>
+          <article class="fit-card no">
+            <span class="fit-mark">×</span><h3>不适合你，如果你需要</h3>
+            <ul>
+              <li>精细到帧的手动时间线剪辑</li>
+              <li>复杂调色、视觉特效或专业包装</li>
+              <li>不安装软件、纯浏览器内完成转码</li>
+              <li>依赖混剪保证平台判定“首发”</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="screenshot-section">
+        <div class="screenshot-copy">
+          <span class="section-kicker">REAL APPLICATION</span>
+          <h2>真实桌面版，远不止这个演示</h2>
+          <p>正式版包含目录浏览器、Body 多组管理、三轨配乐、字幕预览、去重变换、智能并发压测、任务停止/续跑与在线更新。</p>
+          <div class="feature-tags"><span>10 组 Body</span><span>三轨 BGM</span><span>随机输出参数</span><span>任务续跑</span><span>智能压测</span><span>本地日志</span></div>
+        </div>
+        <figure class="app-window">
+          <div class="app-window-bar"><span></span><span></span><span></span><em>VideoMatrix 2.8.0</em></div>
+          <img src="https://raw.githubusercontent.com/w2968066/VideoMatrix--/main/docs/images/main-window.png" alt="VideoMatrix 桌面版主界面截图" />
+        </figure>
+      </section>
+
+      <section class="download-section" id="download">
+        <div class="download-copy">
+          <span class="section-kicker">DOWNLOAD DESKTOP APP</span>
+          <h2>用你的真实素材，跑一次。</h2>
+          <p>桌面版已内置后端服务和 FFmpeg / FFprobe，不需要额外安装 Python。建议先用 8–20 条素材做小批量测试。</p>
+          <div class="version-line"><span>最新稳定版</span><b>v2.8.0</b><em>2026-10-13</em></div>
+        </div>
+        <div class="download-cards">
+          <a class="download-card" href="https://github.com/w2968066/VideoMatrix--/releases/download/v2.8.0/VideoMatrix.Setup.2.8.0.exe">
+            <span class="os-icon">WIN</span><div><small>Windows 10 / 11 · x64</small><strong>下载 .exe 安装包</strong></div><b>↓</b>
+          </a>
+          <a class="download-card" href="https://github.com/w2968066/VideoMatrix--/releases/download/v2.8.0/VideoMatrix.Setup.2.8.0-mac.dmg">
+            <span class="os-icon">MAC</span><div><small>macOS · Apple Silicon</small><strong>下载 .dmg 安装包</strong></div><b>↓</b>
+          </a>
+          <p class="mac-warning">macOS 安装包未做 Apple 开发者签名及公证，系统可能显示安全限制。</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="brand"><img src="https://raw.githubusercontent.com/w2968066/VideoMatrix--/main/docs/images/app-icon.png" alt="" /><span>VideoMatrix</span></div>
+      <p>产品代码与安装包来自开源项目；本页用于功能评估与试用引导。</p>
+      <a href="https://github.com/w2968066/VideoMatrix--" target="_blank" rel="noreferrer">GitHub 源码 ↗</a>
+    </footer>
+  </body>
+</html>
